@@ -7,7 +7,7 @@ const app = express();
 
 app.set("port", process.env.PORT || 3001);
 
-app.get("/api/food", (req, res) => {
+app.get("/api/operations", (req, res) => {
 
   var url = 'mongodb://localhost:27017/gestion_finance';
   MongoClient.connect(url, function(err, db) {
