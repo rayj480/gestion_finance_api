@@ -8,7 +8,8 @@
     "express": "4.13.3",
     "fs": "0.0.2",
     "mongodb": "^2.2.33",
-    "sql.js": "0.3.2"
+    "sql.js": "0.3.2",
+    "uuid": "^3.1.0"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
