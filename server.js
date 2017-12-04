@@ -58,7 +58,23 @@ app.post("/api/operation", (req, res) => {
     'montant': req.body.montant, 
     'userid': req.body.userid
   });
-})
+}); 
+
+
+app.delete("/api/operation", (req, res) => {
+  res.setHeader('Content-Type', 'application/json'); 
+  console.log(req)
+  MongoClient.connect(url, (err, db) => {
+    assert.equal(null, err); 
+
+    var col = db.collection('operations'); 
+
+    col.deleteOne({id: req.query.id}).then((d) => {
+      assert.equal(null, err);
+      res.json({d});
+    });
+  });
+});
 
 app.listen(app.get("port"), () => {
   console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
