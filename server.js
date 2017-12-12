@@ -42,11 +42,10 @@ app.post("/api/operation", (req, res) => {
 
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
-    console.log("Connected correctly to server");
   
     var col = db.collection('operations');
     // Insert a single document
-    col.insertOne({id: uuidv4(), libelle: req.body.libelle, montant: req.body.montant, userid: req.body.userid}).then((err, r) => {
+    col.insertOne({id: uuidv4(), libelle: req.body.libelle, montant: req.body.montant, userid: req.body.userid, nextmonth: req.body.nextmonth}).then((err, r) => {
       assert.equal(null, err);
       
       res.json({r});
